@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An interactive simulator for Disk Scheduling Algorithms including FCFS, SSTF, SCAN, C-SCAN, LOOK, and C-LOOK.">
+    <title>Disk Scheduling Simulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Disk Scheduling <span>Simulator</span></h1>
+            <p>Visualize and compare FCFS, SSTF, SCAN, C-SCAN, LOOK, and C-LOOK algorithms in real-time.</p>
+        </header>
+
+        <section class="control-panel glass-panel">
+            <h2>Algorithm Configurations</h2>
+            <form id="simulator-form">
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="request-sequence">Request Sequence (Comma-separated)</label>
+                        <input type="text" id="request-sequence" placeholder="e.g. 82, 170, 43, 140, 24, 16, 190" required>
+                    </div>
+                    
+                    <div class="input-field">
+                        <label for="initial-head">Initial Head Position</label>
+                        <input type="number" id="initial-head" placeholder="e.g. 50" min="0" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="total-tracks">Total Tracks</label>
+                        <input type="number" id="total-tracks" placeholder="e.g. 200" value="200" min="1" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="head-direction">Head Direction</label>
+                        <select id="head-direction" required>
+                            <option value="high">Towards Highest Track</option>
+                            <option value="low">Towards 0 (Lower Tracks)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="primary-btn">Simulate Algorithms</button>
+            </form>
+        </section>
+
+        <section class="results-container" id="results-container" style="display: none;">
+            <div class="results-grid" id="results-grid">
+                <!-- Algorithm cards will be dynamically injected here via JS -->
+            </div>
+        </section>
+    </main>
+</body>
+</html>
